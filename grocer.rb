@@ -29,6 +29,7 @@ def apply_coupons(cart, coupons)
     new_fruit_name = fruit_name + "/W COUPONS"
     cart[new_fruit_name] = new_coup_hsh
   }
+binding.pry
   cart
 end
 
