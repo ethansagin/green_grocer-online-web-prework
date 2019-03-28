@@ -33,8 +33,8 @@ end
 
 def apply_clearance(cart)
   cart.each { |grocery, info|
-    if cart[grocery][:clearance] == true
-      cart[grocery][:price] = (cart[grocery][:price]).to_i * 0.80
+    if info[:clearance] == true
+      info[:price] = (info[:price]).to_i * 0.80
     end
     cart
   }
