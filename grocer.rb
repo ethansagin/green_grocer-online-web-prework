@@ -25,12 +25,12 @@ def apply_coupons(cart, coupons)
       if cart[fruit_name][:count] >= coup_hsh[:num]
         cart[fruit_name][:count] = cart[fruit_name][:count] % coup_hsh[:num]
         new_coup_hsh[:count] = cart[fruit_name][:count] / coup_hsh[:num]
+        binding.pry
       end
       new_fruit_name = fruit_name + "/W COUPONS"
       cart[new_fruit_name] = new_coup_hsh
     end
   }
-binding.pry
   cart
 end
 
