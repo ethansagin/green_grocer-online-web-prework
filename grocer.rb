@@ -22,6 +22,7 @@ def apply_coupons(cart, coupons)
       :count => 0}
     if cart.key?(fruit_name)
       cart[fruit_name][:clearance] = new_coup_hsh[:clearance]
+    end
     if cart[fruit_name][:count] >= coup_hsh[:num]
       cart[fruit_name][:count] = cart[fruit_name][:count] % coup_hsh[:num]
       new_coup_hsh[:count] = cart[fruit_name][:count] / coup_hsh[:num]
