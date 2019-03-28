@@ -33,10 +33,11 @@ end
 
 def apply_clearance(cart)
   cart.map { |grocery, info|
-    if grocery[:clearance]
+    if grocery[:clearance] == true
       grocery[:price] = grocery[:price] * 0.80
     end
     grocery
+    binding.pry
   }
 end
 
