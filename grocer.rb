@@ -49,7 +49,7 @@ def checkout(cart, coupons)
     grand_total += (info[:price] * info[:count]).round(2)
   }
   if grand_total > 100
-    grand_total = grand_total *1.1.round(2)
+    grand_total = grand_total *0.9.round(2)
   else
     grand_total
   end
