@@ -14,10 +14,11 @@ end
 
 
 def apply_coupons(cart, coupons)
+  new_cart = {}
   cart.each { |grocery, info|
     coupons.each { |coupon|
       if grocery = coupon[:item] && info[:count] >= coupon[:num]
-        
+        grocery = 
         
 end
 
