@@ -26,8 +26,7 @@ def apply_coupons(cart, coupons)
         new_coup_hsh[:count] = cart[fruit_name][:count] / coup_hsh[:num]
         cart[fruit_name][:count] = cart[fruit_name][:count] % coup_hsh[:num]
       end
-      new_fruit_name = fruit_name + "/W COUPONS"
-      cart[new_fruit_name] = new_coup_hsh
+      cart[fruit_name + "/W COUPONS"] = new_coup_hsh
     end
   }
   binding.pry
