@@ -1,15 +1,56 @@
+require 'pry'
+
 def consolidate_cart(cart)
-  # code here
+  consolidated = {}
+  cart.each { |item|
+    item.each { |fruit, hsh|
+      consolidated[fruit] ||= hsh
+      consolidated[fruit][:count] ||= 0
+      consolidated[fruit][:count] += 1
+    }
+  }
+  consolidated
 end
 
+
 def apply_coupons(cart, coupons)
-  # code here
+  new_cart = {}
+  cart.each { |grocery, info|
+    coupons.each { |coupon|
+      if grocery == coupon[:item] && info[:count] >= coupon[:num]
+        cart[grocery][:count] = cart[grocery][:count] - coupon[:num]
+        if new_cart[grocery + " W/COUPON"]
+          new_cart[grocery + " W/COUPON"][:count] += 1
+        else
+          new_cart[grocery + " W/COUPON"] = {:price => coupon[:cost], :clearance => cart[grocery][:clearance], :count => 1}
+        end
+      end
+    }
+    new_cart[grocery] = info
+  }
+  new_cart
 end
 
 def apply_clearance(cart)
-  # code here
+  cart.each { |grocery, info|
+    if info[:clearance] == true
+      info[:price] = (info[:price] * 0.80).round(2)
+    end
+    cart
+  }
 end
 
 def checkout(cart, coupons)
-  # code here
+  grand_total = 0
+  new_cart = consolidate_cart(cart)
+  new_cart = apply_coupons(new_cart, coupons)
+  new_cart = apply_clearance(new_cart)
+  new_cart.each { |grocery, info|
+    grand_total += (info[:price] * info[:count]).round(2)
+  }
+  if grand_total > 100
+    grand_total = grand_total *0.9.round(2)
+  else
+    grand_total
+  end
 end
