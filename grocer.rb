@@ -26,7 +26,7 @@ def apply_coupons(cart, coupons)
         new_coup_hsh[:count] = cart[fruit_name][:count] / coup_hsh[:num]
         cart[fruit_name][:count] = cart[fruit_name][:count] % coup_hsh[:num]
       end
-      cart[fruit_name + "/W COUPONS"] = new_coup_hsh
+      cart[fruit_name + "/W COUPON"] = new_coup_hsh
     end
   }
   cart
