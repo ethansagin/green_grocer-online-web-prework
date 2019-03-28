@@ -25,7 +25,10 @@ def apply_coupons(cart, coupons)
           new_cart[grocery + " W/COUPON"] = {:price => coupon[:cost], :clearance => cart[grocery][:clearance], :count => 1}
         end
       end
-        
+    }
+    new_cart[grocery] = info
+  end
+  new_cart
 end
 
 def apply_clearance(cart)
