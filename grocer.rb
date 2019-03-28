@@ -25,7 +25,7 @@ def apply_coupons(cart, coupons)
       cart[fruit_name][:clearance] = new_coup_hsh[:clearance]
     if cart[fruit_name][:count] >= coup_hsh[:num]
       cart[fruit_name][:count] = cart[fruit_name][:count] % coup_hsh[:num]
-      new_coup_hsh[:count] = 
+      new_coup_hsh[:count] = cart[fruit_name][:count] / coup_hsh[:num]
       binding.pry
     end
   }
