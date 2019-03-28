@@ -37,7 +37,6 @@ def apply_clearance(cart)
       cart[grocery][:price] = (cart[grocery][:price]).to_i * 0.80
     end
     cart[grocery]
-    binding.pry
   }
 end
 
