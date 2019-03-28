@@ -42,8 +42,8 @@ end
 
 def checkout(cart, coupons)
   grand_total = 0
-  consolidate_cart(cart)
-  apply_coupons(cart, coupons)
+  cart = consolidate_cart(cart)
+  cart = apply_coupons(cart, coupons)
   apply_clearance(cart)
   cart.each { |grocery, info|
     grand_total += (info[:price] * info[:count]).round(2)
