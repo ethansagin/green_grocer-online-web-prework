@@ -42,10 +42,10 @@ end
 
 def checkout(cart, coupons)
   grand_total = 0
-  cart = consolidate_cart(cart)
-  cart = apply_coupons(cart, coupons)
-  apply_clearance(cart)
-  cart.each { |grocery, info|
+  new_cart = consolidate_cart(cart)
+  new_cart = apply_coupons(new_cart, coupons)
+  new_cart = apply_clearance(new_cart)
+  new_cart.each { |grocery, info|
     grand_total += (info[:price] * info[:count]).round(2)
   }
   if grand_total > 100
