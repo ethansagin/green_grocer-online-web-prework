@@ -30,7 +30,7 @@ def apply_coupons(cart, coupons)
     end
     new_fruit_name = fruit_name + "/W COUPONS"
     cart[new_fruit_name] = new_coup_hsh
-  }
+  }}
   cart
 end
 
