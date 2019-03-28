@@ -19,7 +19,12 @@ def apply_coupons(cart, coupons)
     coupons.each { |coupon|
       if grocery = coupon[:item] && info[:count] >= coupon[:num]
         cart[grocery][:count] = cart[grocery][:count] - coupon[:num]
-        if 
+        if new_cart[grocery + " W/COUPON"]
+          new_cart[grocery + " W/COUPON"][:count] += 1
+        else
+          new_cart[grocery + " W/COUPON"] = {:price => coupon[:cost], :clearance => cart[grocery][:clearance], :count => 1}
+        end
+      end
         
 end
 
