@@ -14,7 +14,8 @@ end
 
 
 def apply_coupons(cart, coupons)
-
+  cart.each { |grocery, info|
+    coupons.each { |coup_hsh|
 end
 
 def apply_clearance(cart)
