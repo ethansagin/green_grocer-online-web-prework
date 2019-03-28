@@ -23,7 +23,8 @@ def apply_coupons(cart, coupons)
       binding.pry
     if cart.key? == fruit_name
       cart[fruit_name][:clearance] = new_coup_hsh[:clearance]
-#    if 
+    if cart[fruit_name][:count] >= coup_hsh[:num]
+      cart[fruit_name][:count] = cart[fruit_name][:count] % coup_hsh[:num]
       binding.pry
     end
   }
