@@ -16,6 +16,8 @@ end
 def apply_coupons(cart, coupons)
   coupons.each { |coup_hsh|
     fruit_name = coup_hsh[:item]
+            binding.pry
+
     new_coup_hsh = {
       :price => coup_hsh[:cost],
       :clearance => true,
@@ -25,7 +27,6 @@ def apply_coupons(cart, coupons)
       if cart[fruit_name][:count] >= coup_hsh[:num]
         cart[fruit_name][:count] = cart[fruit_name][:count] % coup_hsh[:num]
         new_coup_hsh[:count] = cart[fruit_name][:count] / coup_hsh[:num]
-        binding.pry
       end
       new_fruit_name = fruit_name + "/W COUPONS"
       cart[new_fruit_name] = new_coup_hsh
