@@ -16,8 +16,6 @@ end
 def apply_coupons(cart, coupons)
   coupons.each { |coup_hsh|
     fruit_name = coup_hsh[:item]
-            binding.pry
-
     new_coup_hsh = {
       :price => coup_hsh[:cost],
       :clearance => true,
